@@ -1,6 +1,7 @@
 import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import "./ReactInfiniteTape.css";
 const DEFAULT_SPEED = 8000;
-interface IReactTapeProps {
+interface IReactInfiniteTapeProps {
   /**
    * Sets the animation speed in milliseconds.
    * defaults to 8000 milliseconds for a full cycle.
@@ -12,7 +13,7 @@ interface IReactTapeProps {
    */
   pauseOnHover?: boolean;
 }
-const ReactTape: React.FC<IReactTapeProps> = ({
+const ReactInfiniteTape: React.FC<IReactInfiniteTapeProps> = ({
   children,
   speed = DEFAULT_SPEED,
   pauseOnHover,
@@ -44,14 +45,14 @@ const ReactTape: React.FC<IReactTapeProps> = ({
     if (!pauseOnHover) return;
     const wrapper = wrapperRef.current;
     if (wrapper) {
-      wrapper.classList.add("swiper-anim-p");
+      wrapper.classList.add("react-infinite-tape__paused");
     }
   };
   const onMouseLeave = () => {
     if (!pauseOnHover) return;
     const wrapper = wrapperRef.current;
     if (wrapper) {
-      wrapper.classList.remove("swiper-anim-p");
+      wrapper.classList.remove("react-infinite-tape__paused");
     }
   };
   useEffect(() => {
@@ -63,7 +64,7 @@ const ReactTape: React.FC<IReactTapeProps> = ({
     }
   }, [render, speed]);
   return (
-    <div className="infinite-tape-wrapper">
+    <div className="infinite-tape-container">
       <div
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
@@ -76,4 +77,4 @@ const ReactTape: React.FC<IReactTapeProps> = ({
   );
 };
 
-export default ReactTape;
+export default ReactInfiniteTape;

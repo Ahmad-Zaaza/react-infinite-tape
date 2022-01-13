@@ -1,1 +1,1 @@
-export { default as ReactTape } from "./ReactTape";
+export { default as ReactInfiniteTape } from "./ReactInfiniteTape";

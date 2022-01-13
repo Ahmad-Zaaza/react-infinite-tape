@@ -1,0 +1,25 @@
+.infinite-tape-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+.infinite-tape-track {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 8000ms;
+  animation-play-state: running;
+}
+.react-infinite-tape__paused {
+  animation-play-state: paused;
+}
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
