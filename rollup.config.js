@@ -16,7 +16,7 @@ module.exports = [
       {
         file: packageJson.module,
         sourcemap: true,
-        format: "cjs",
+        format: "esm",
       },
     ],
     plugins: [
