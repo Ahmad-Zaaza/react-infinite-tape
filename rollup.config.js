@@ -1,3 +1,6 @@
+/**
+ * @type {import('rollup').RollupOptions}
+ */
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import commonjs from "@rollup/plugin-commonjs";
@@ -24,7 +27,10 @@ module.exports = [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
-      postcss(),
+      postcss({
+        modules: { generateScopedName: "[hash:base64:8]" },
+        autoModules: true,
+      }),
     ],
     external: ["react", "react-dom"],
   },
